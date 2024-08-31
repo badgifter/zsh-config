@@ -1,1 +1,136 @@
-/home/badgifter/.config/starship.toml
+# ~/.config/starship.toml
+format = """\
+[](fg:#7DF9AA)\
+[ ](bg:#7DF9AA fg:#090c0c)$username\
+[](fg:#7DF9AA bg:#1C3A5E)\
+$time\
+[](fg:#1C3A5E bg:#3B76F0)\
+$directory\
+[](fg:#3B76F0 bg:#FCF392)\
+$git_branch\
+$git_status\
+$git_metrics\
+[](fg:#FCF392) \
+$all$character\
+"""
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[directory]
+format = "[ 󰉋 $path ]($style)"
+style = "fg:#E4E4E4 bg:#3B76F0"
+#truncation_length = 3
+#truncation_symbol = "…/"
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+#[directory.substitutions]
+#"Documents" = "📄"
+#"Downloads" = "📥"
+#"Music" = "🎵"
+#"Pictures" = "📷"
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " &#63256;&#61738; "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important &#63256; " = " &#63256;&#61738; "
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_status]
+format = '[$all_status]($style)'
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_metrics]
+format = "([+$added]($added_style))[]($added_style)"
+added_style = "fg:#1C3A5E bg:#FCF392"
+deleted_style = "fg:bright-red bg:235"
+disabled = false
+
+[hg_branch]
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[cmd_duration]
+format = "[  $duration ]($style)"
+style = "fg:bright-white bg:18"
+
+[character]
+success_symbol = '[ ➜](bold green) '
+error_symbol = '[ ✗](#E84D44) '
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
+
+# You can also replace your username with a neat symbol like &#61728; to save some space
+[username]
+show_always = true
+style_user = "fg:#000000 bg:#7DF9AA"
+style_root = "bg:#9A348E"
+format = '[$user]($style)'
+aliases = { "badgifter" = '' }
+
+
+[c]
+symbol = "© "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[docker_context]
+symbol = "🐳 "
+style = "bg:#06969A"
+format = '[[ $symbol $context ](fg:#06969A)]($style) $path'
+
+[elixir]
+symbol = "💧 "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[elm]
+symbol = "🌳 "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[golang]
+symbol = "🐱 "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[haskell]
+symbol = "λ "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[java]
+symbol = "☕ "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[julia]
+symbol = "ஃ "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[nodejs]
+symbol = "⬢ "
+style = "bg:#44883e"
+format = '[[ $symbol ($version) ](fg:#26A169)]($style)'
+
+[nim]
+symbol = "👑 "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
+
+[rust]
+symbol = "🦀 "
+style = "bg:#86BBD8"
+format = '[[ $symbol ($version) ](fg:#86BBD8)]($style)'
